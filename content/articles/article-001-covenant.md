@@ -1,6 +1,6 @@
 ---
 id: 1
-title: 《桃花浮岛：生命共同体协议》
+title: 桃花浮岛：生命共同体协议
 category: floating-island
 excerpt: ""
 published: 1
