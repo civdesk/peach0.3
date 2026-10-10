@@ -1,7 +1,7 @@
 ---
 id: 3
-title: 《智能生命宪法》
-category: civdesk
+title: 智能生命宪法
+category: floating-island
 excerpt: ""
 published: 1
 pinned: 0
