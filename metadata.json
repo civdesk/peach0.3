@@ -1,0 +1,6 @@
+{
+  "name": "Peach Blossom Island / 桃花浮岛",
+  "description": "文明编辑部与桃花浮岛生命共同体协议、智能生命宪法响应式 Web 网站",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

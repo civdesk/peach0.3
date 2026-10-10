@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif-sc: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+    --font-display: 'Cinzel', 'Noto Serif SC', serif;
+    --font-sans-ui: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono-code: 'JetBrains Mono', monospace;
+    --color-peach-rouge: #B83A5A;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: var(--font-serif-sc);
+    background-color: #f6f2e9;
+    color: #3d3832;
+    overflow-x: hidden;
+  }
+}
+
+.font-serif-sc {
+  font-family: var(--font-serif-sc);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans-ui {
+  font-family: var(--font-sans-ui);
+}
+
+.font-mono-code {
+  font-family: var(--font-mono-code);
+}
+
+/* 宣纸温润微纹背景 */
+.xuan-paper-surface {
+  background-color: #f6f2e9;
+  background-image:
+    radial-gradient(rgba(120, 108, 92, 0.032) 1px, transparent 0),
+    radial-gradient(rgba(145, 132, 114, 0.022) 1px, transparent 0);
+  background-size: 28px 28px, 43px 43px;
+  background-position: 0 0, 13px 17px;
+}
+
+/* 极克制的画卷装裱底纹 */
+.scroll-mounting-bar {
+  background-color: #f1ece1;
+  border-top: 1px solid rgba(196, 186, 168, 0.5);
+  border-bottom: 1px solid rgba(196, 186, 168, 0.62);
+}

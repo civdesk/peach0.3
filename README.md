@@ -1,11 +1,63 @@
-<div align="center">
+# 桃花浮岛 · Peach Blossom Island
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+一个关于生命、共同体与未来生活方式的开放式实验网站。
 
-  <h1>Built with AI Studio</h2>
+桃花浮岛从几个简单的问题出发：
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+* 人类为什么必须接受现有的生活方式？
+* 如果一些自然限制可以被技术改变，我们应该如何重新设计共同生活？
+* 一个共同体如何允许成员自由加入、退出和重新协商关系？
+* 当人工智能、合成生命和其他智能生命出现后，现有制度是否仍然足够？
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## 当前版本
 
-</div>
+v0.2 是网站的早期 Web 原型，主要用于展示和整理桃花浮岛的核心思想与文本。
+
+目前包含：
+
+* 文明编辑部
+* 生老病死
+* 弱肉强食
+* 自然灾害
+* 桃花浮岛
+* Let's Decide
+* 宇宙宪法及相关思想实验
+
+这是一个**实验性项目**，目前并不代表已经完成的社会、工程或科学方案。
+
+## 技术
+
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* Web Audio API
+
+项目为纯 Web 应用，不依赖 Android APK。
+
+## 本地运行
+
+```bash
+npm install
+npm run dev
+```
+
+构建：
+
+```bash
+npm run build
+```
+
+构建后的 `dist` 可以部署到 GitHub Pages、Cloudflare Pages、Vercel 等静态托管平台。
+
+## 项目原则
+
+桃花浮岛关注的不是建立一个封闭的理想社会，而是探索：
+
+**一个人是否可以自由进入、参与、退出，并在未来重新建立关系。**
+
+项目中的科学、工程和制度设想均属于探索性内容，具体方案需要经过进一步研究、实验和现实验证。
+
+## License
+
+待定。

@@ -1,0 +1,24 @@
+{
+  "name": "peach-blossom-island-v0-2",
+  "main": "worker.ts",
+  "compatibility_date": "2025-04-01",
+  "keep_vars": true,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  }
+  // 创建 D1 数据库后，可在 Cloudflare 控制台 (Settings -> Bindings) 直接绑定变量名 DB，
+  // 或取消下方注释并填入你在 Cloudflare 获得的真实 database_id：
+  // ,
+  // "d1_databases": [
+  //   {
+  //     "binding": "DB",
+  //     "database_name": "peach-blossom-island-db",
+  //     "database_id": "请替换为真实的_D1_database_id"
+  //   }
+  // ]
+}
