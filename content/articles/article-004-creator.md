@@ -1,7 +1,7 @@
 ---
 id: 4
-title: 《谁来审判创造者》
-category: civdesk
+title: 谁来审判创造者
+category: floating-island
 excerpt: ""
 published: 1
 pinned: 0
