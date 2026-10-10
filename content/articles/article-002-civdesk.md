@@ -1,6 +1,6 @@
 ---
 id: 2
-title: 文明编辑部
+title: 三个基本痛苦
 category: civdesk
 excerpt: ""
 published: 1
