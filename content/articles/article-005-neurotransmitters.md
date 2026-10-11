@@ -1,6 +1,14 @@
-id: 5 title: 被精算的情感，被驯化的群体：当神经调控走向“暗黑科学” category: foodchain excerpt: "" published: 1 pinned: 0 created_at: 2026-01-01 00:00:04 updated_at: 2026-01-01 00:00:04
-
 ---
+id: 5
+title: 被精算的情感，被驯化的群体：当神经调控走向“暗黑科学”
+category: foodchain
+excerpt: ""
+published: 1
+pinned: 0
+created_at: 2026-01-01 00:00:04
+updated_at: 2026-01-01 00:00:04
+---
+
 #### 文明编辑部深度调查
 
 以前，科学致力于治愈个体的痛苦；现在，最顶尖的算力却在悄悄精算如何让群体服软。从公共环境的听觉拒止，到手机屏幕后的算法愤怒，隐形神经工程正将人类推向集体麻木和内耗。
