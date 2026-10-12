@@ -14,13 +14,12 @@ import {
 } from './content/loader';
 
 function checkIsNotFoundRoute(): boolean {
-  const { pathname, hash, search } = window.location;
-  const isRootPath =
-    pathname === '/' || pathname === '' || pathname === '/index.html';
-  const isValidHash =
-    hash === '' || hash === '#' || hash === '#/';
-  const isValidSearch = search === '';
-  return !isRootPath || !isValidHash || !isValidSearch;
+  const { pathname } = window.location;
+  // 支持根域名部署 (如 /) 或 GitHub Pages 仓库二级目录部署 (如 /peach0.3/ 或 /peach0.3)
+  const cleanPath = pathname.replace(/\/index\.html$/, '').replace(/\/+$/, '');
+  const segments = cleanPath.split('/').filter(Boolean);
+  // 根域名 0 段，GitHub Pages 1 段，若超过 1 段则视为不存在的深层子路由
+  return segments.length > 1;
 }
 
 export default function App() {
@@ -46,12 +45,16 @@ export default function App() {
 
   const handleSelectTab = (tab: NavMenu) => {
     setIsNotFound(false);
+    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/+$/, '');
+    const segments = cleanPath.split('/').filter(Boolean);
+    const basePath = segments.length > 0 ? `/${segments[0]}/` : '/';
+
     if (
-      window.location.pathname !== '/' ||
+      window.location.pathname !== basePath ||
       window.location.hash !== '' ||
       window.location.search !== ''
     ) {
-      window.history.pushState(null, '', '/');
+      window.history.pushState(null, '', basePath);
     }
     setCurrentTab(tab);
     scrollToTop();
