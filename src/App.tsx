@@ -13,49 +13,15 @@ import {
   getSiteFooterText
 } from './content/loader';
 
-function checkIsNotFoundRoute(): boolean {
-  const { pathname } = window.location;
-  // 支持根域名部署 (如 /) 或 GitHub Pages 仓库二级目录部署 (如 /peach0.3/ 或 /peach0.3)
-  const cleanPath = pathname.replace(/\/index\.html$/, '').replace(/\/+$/, '');
-  const segments = cleanPath.split('/').filter(Boolean);
-  // 根域名 0 段，GitHub Pages 1 段，若超过 1 段则视为不存在的深层子路由
-  return segments.length > 1;
-}
-
 export default function App() {
   const [currentTab, setCurrentTab] = useState<NavMenu>('island');
-  const [isNotFound, setIsNotFound] = useState<boolean>(checkIsNotFoundRoute);
   const footerText = getSiteFooterText();
-
-  useEffect(() => {
-    const handleRouteChange = () => {
-      setIsNotFound(checkIsNotFoundRoute());
-    };
-    window.addEventListener('hashchange', handleRouteChange);
-    window.addEventListener('popstate', handleRouteChange);
-    return () => {
-      window.removeEventListener('hashchange', handleRouteChange);
-      window.removeEventListener('popstate', handleRouteChange);
-    };
-  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSelectTab = (tab: NavMenu) => {
-    setIsNotFound(false);
-    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/+$/, '');
-    const segments = cleanPath.split('/').filter(Boolean);
-    const basePath = segments.length > 0 ? `/${segments[0]}/` : '/';
-
-    if (
-      window.location.pathname !== basePath ||
-      window.location.hash !== '' ||
-      window.location.search !== ''
-    ) {
-      window.history.pushState(null, '', basePath);
-    }
     setCurrentTab(tab);
     scrollToTop();
   };
@@ -70,71 +36,51 @@ export default function App() {
 
       {/* 页面文稿内容区 */}
       <main className="flex-1 w-full">
-        {isNotFound ? (
-          <section className="max-w-2xl mx-auto px-5 sm:px-8 pt-10 pb-16 text-[#3d3832] font-serif-sc space-y-4">
-            <h1 className="text-base sm:text-lg font-medium text-[#2c2824] tracking-wider">
-              未找到页面
-            </h1>
-            <p className="text-sm leading-relaxed text-[#6e665c]">
-              您访问的页面不存在，或链接已变更。
-            </p>
-            <div className="pt-1">
-              <button
-                type="button"
-                onClick={() => handleSelectTab('island')}
-                className="min-h-[34px] px-3.5 py-1.5 text-xs sm:text-sm border border-[#cfc6b4] bg-[#f1ece1] text-[#2c2824] hover:text-[#B83A5A] transition-colors cursor-pointer"
-              >
-                返回桃花浮岛首页
-              </button>
-            </div>
-          </section>
-        ) : (
-          <div>
-            {currentTab === 'home' && (
-              <RuralScrollHome onNavigateTab={handleSelectTab} />
-            )}
+        <div>
+          {currentTab === 'home' && (
+            <RuralScrollHome onNavigateTab={handleSelectTab} />
+          )}
 
-            {currentTab === 'predation' && (
-              <TrackDetailView
-                trackId="predation"
-                onNavigateToIsland={() => handleSelectTab('island')}
-                onNavigateToDecide={() => handleSelectTab('letsdecide')}
-                onSwitchTrack={(id) => handleSelectTab(id)}
-              />
-            )}
+          {currentTab === 'predation' && (
+            <TrackDetailView
+              trackId="predation"
+              onNavigateToIsland={() => handleSelectTab('island')}
+              onNavigateToDecide={() => handleSelectTab('letsdecide')}
+              onSwitchTrack={(id) => handleSelectTab(id)}
+            />
+          )}
 
-            {currentTab === 'aging' && (
-              <TrackDetailView
-                trackId="aging"
-                onNavigateToIsland={() => handleSelectTab('island')}
-                onNavigateToDecide={() => handleSelectTab('letsdecide')}
-                onSwitchTrack={(id) => handleSelectTab(id)}
-              />
-            )}
+          {currentTab === 'aging' && (
+            <TrackDetailView
+              trackId="aging"
+              onNavigateToIsland={() => handleSelectTab('island')}
+              onNavigateToDecide={() => handleSelectTab('letsdecide')}
+              onSwitchTrack={(id) => handleSelectTab(id)}
+            />
+          )}
 
-            {currentTab === 'disaster' && (
-              <TrackDetailView
-                trackId="disaster"
-                onNavigateToIsland={() => handleSelectTab('island')}
-                onNavigateToDecide={() => handleSelectTab('letsdecide')}
-                onSwitchTrack={(id) => handleSelectTab(id)}
-              />
-            )}
+          {currentTab === 'disaster' && (
+            <TrackDetailView
+              trackId="disaster"
+              onNavigateToIsland={() => handleSelectTab('island')}
+              onNavigateToDecide={() => handleSelectTab('letsdecide')}
+              onSwitchTrack={(id) => handleSelectTab(id)}
+            />
+          )}
 
-            {currentTab === 'island' && (
-              <FloatingIslandView
-                onNavigateToDecide={() => handleSelectTab('letsdecide')}
-                onNavigateToTrack={(id) => handleSelectTab(id)}
-              />
-            )}
+          {currentTab === 'island' && (
+            <FloatingIslandView
+              onNavigateToDecide={() => handleSelectTab('letsdecide')}
+              onNavigateToTrack={(id) => handleSelectTab(id)}
+            />
+          )}
 
-            {currentTab === 'letsdecide' && (
-              <LetsDecideView
-                onNavigateToIslandArticle={() => handleSelectTab('island')}
-              />
-            )}
-          </div>
-        )}
+          {currentTab === 'letsdecide' && (
+            <LetsDecideView
+              onNavigateToIslandArticle={() => handleSelectTab('island')}
+            />
+          )}
+        </div>
       </main>
 
       {/* 素雅宣纸尾跋页脚（紧凑两行布局） */}
